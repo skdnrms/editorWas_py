@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>editor bbs</title>
+</head>
+<body>
+    <h1><a href="./edit?id=-1">new doc</a></h1>
+    <table>
+        <tbody>
+            {% for post in post_list %}
+            <tr class="model-group">
+                <th><a href="">{{ post.title }}</a></th>
+                <td>{{ post.created_date }}</a></td>
+                <td><a href="./edit?id={{ post.id }}">edit</a></td>
+                <td><a href="">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

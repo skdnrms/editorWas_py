@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="{% static './synapeditor.js' %}"></script>
+    <title>Edit</title>
+</head>
+<body>
+    <div class="form-warpper">
+        <form method="POST" id="editor_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td><input id="title" type="text" value="{{ post.title }}"></td>
+                <td><input onclick="save()" type="button" value="게시"/></td>
+            </tr>
+            <tr>
+                <td id="synapEditor" colspan="2"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var id = "{{ post.id }}";
+        var editor_form = document.getElementById('editor_form');
+        var elTitle = editor_form.querySelector('[name=title]');
+        var elContents = editor_form.querySelector('[name=contents]')
+        var inputTitle = document.getElementById('title');
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", 'id');
+        editor_form.appendChild(hiddenField);
+        hiddenField.value = id;
+        
+        function save() {
+            elTitle.value = inputTitle.value;
+            elContents.value = editor.getPublishingHtml();
+            editor_form.submit();
+        }
+
+        window.editor = new SynapEditor('synapEditor');
+        editor.initSEModel(elContents.value);
+    </script>
+</body>
+</html>
