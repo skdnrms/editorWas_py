@@ -6,3 +6,6 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     contents = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
+
+class Photo(models.Model):
+	image = models.ImageField(upload_to='media/test/', null=True)
