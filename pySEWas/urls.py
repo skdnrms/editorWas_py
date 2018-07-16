@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from testWas import views
 from django.conf import settings
+from django.conf.urls import include, url
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('froala', views.froala, name='froala'),
+    url(r'^froala_editor/', include('froala_editor.urls')),
     path('edit', views.edit, name='edit'),
     path('uploadFile', views.upload, name='upload'),
+    path('importDoc', views.importDoc, name='importDoc'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

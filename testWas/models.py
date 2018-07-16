@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from froala_editor.fields import FroalaField
 
 # Create your models here.
 class Post(models.Model):
@@ -7,5 +8,6 @@ class Post(models.Model):
     contents = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
-class Photo(models.Model):
-	image = models.ImageField(upload_to='media/test/', null=True)
+class Page(models.Model):
+    content = FroalaField()
+    
