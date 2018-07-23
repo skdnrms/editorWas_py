@@ -1,6 +1,6 @@
 from django import forms
-from .models import Post
 from froala_editor.widgets import FroalaEditor
+from .models import Post, Page
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -8,4 +8,6 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'contents',)
 
 class PageForm(forms.ModelForm):
-    content = forms.CharField(widget=FroalaEditor)
+    class Meta:
+        model = Page
+        fields = ('contents',)

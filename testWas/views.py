@@ -17,9 +17,7 @@ def index(request):
     })
 
 def froala(request):
-    form = PostForm()
-    print(form.media)
-    return render(request, 'testWas/froala.html', {'form': form})
+    return render(request, 'testWas/froala.html', {'form': PageForm()})
 
 def edit(request):
     if request.method == "POST":

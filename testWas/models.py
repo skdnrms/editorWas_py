@@ -9,5 +9,5 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
 class Page(models.Model):
-    content = FroalaField()
+    contents = FroalaField()
     

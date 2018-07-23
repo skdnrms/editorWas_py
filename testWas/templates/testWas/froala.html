@@ -5,37 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" media="all" rel="stylesheet" />
-    
-    <link href="{% static './froala_editor/css/froala_editor.pkgd.min.css' %}" type="text/css" media="all" rel="stylesheet" />
-    <link href="{% static './froala_editor/css/froala_style.min.css' %}" type="text/css" media="all" rel="stylesheet" />
-
-    <!-- Include Code Mirror CSS. -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="{% static './froala_editor/js/froala_editor.pkgd.min.js' %}"></script>
-
-    <!-- Include Code Mirror JS. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+    {{ form.media }}
     <title>froala editor</title>
 </head>
 <body>
     {% csrf_token %}
     {{ form.as_p }}
-    <div id="froala-editor">test froala</div>
-    
-    <script>
-        $(function() {
-            $('div#froala-editor').froalaEditor({
-                toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo']
-            })
-        });
-        // $(function() {
-        //     $('div#froala-editor').froalaEditor()
-        // });
-    </script>
 </body>
 </html>
